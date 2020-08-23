@@ -6,12 +6,12 @@ artigo = Blueprint('artigo', __name__,
                    template_folder='templates',
                    static_folder='static')
 
-artigo_negocio = ArtigoDominio()
+artigo_dominio = ArtigoDominio()
 
 
 @artigo.route("/<int:id_artigo>")
 def view_artigo_visualizar(id_artigo):
-    dictionary = artigo_negocio.visualizar_artigo(id_artigo)
+    dictionary = artigo_dominio.visualizar_artigo(id_artigo)
     return render_template(
         dictionary["template"],
         artigo=dictionary["artigo"] if "artigo" in dictionary else None,
@@ -20,7 +20,7 @@ def view_artigo_visualizar(id_artigo):
 
 @artigo.route('/listar')
 def view_listar():
-    dictionary = artigo_negocio.listar()
+    dictionary = artigo_dominio.listar()
     return render_template(
         dictionary['template'],
         artigos=dictionary['artigos'],
