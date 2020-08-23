@@ -1,0 +1,15 @@
+cffi==1.14.2
+click==7.1.2
+Flask==1.1.2
+Flask-HTTPAuth==4.1.0
+Flask-Login==0.5.0
+Flask-Misaka==1.0.0
+flask-paginate==0.7.0
+itsdangerous==1.1.0
+Jinja2==2.11.2
+MarkupSafe==1.1.1
+misaka==2.1.1
+pycparser==2.20
+PyMySQL==0.10.0
+python-dotenv==0.14.0
+Werkzeug==1.0.1

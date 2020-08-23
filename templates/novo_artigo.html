@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Novo post</title>
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+</head>
+<body>
+    <h1>Novo post</h1>
+    <form action="{{url_for('admin_artigo.cadastrar')}}" method="post">
+        Titulo:<input type="text" name="titulo">
+        Conteudo:<input type="text" name="corpo">
+        <input type="submit" value="postar">
+    </form>
+</body>
+</html>

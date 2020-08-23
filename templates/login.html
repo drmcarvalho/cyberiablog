@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Administrador</title>
+</head>
+<body>
+    <h1>Novo post</h1>
+    <form action="{{url_for('autenticacao.autenticar')}}" method="post">
+        Email:<input type="text" name="email">
+        Senha:<input type="password" name="senha">
+        <input type="submit" value="entrar">
+    </form>
+</body>
+</html>
