@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 
 app = Flask(__name__)
-app.secret_key = b'_5#y2L"F4Q8z\n\xec]/saaaffwwjjaJSQH'
+app.secret_key = b'\x1e\x08I\xfa\xbfl\xf7\x8fL\x82KW\xa9\x19\x1bW\x0b\x9f\x14~@\x9c\xedl'
 app.register_blueprint(admin_artigo, url_prefix='/admin/artigo')
 app.register_blueprint(artigo, url_prefix='/artigo')
 app.register_blueprint(autenticacao, url_prefix='/autenticacao')
