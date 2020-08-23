@@ -34,7 +34,7 @@ def execute(connection, statement, params=None):
 def factory_conexao():
     return database(
         os.environ.get("DB"),
-        os.environ.get("USER"),
+        os.environ.get("USERDB"),
         os.environ.get("PASS"),
         os.environ.get("HOST"),
     )
