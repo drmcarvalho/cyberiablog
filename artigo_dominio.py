@@ -8,23 +8,30 @@ from flask_misaka import markdown
 
 class ArtigoDominio:
     def listar(self, deletado=False):
+        search = False
+        q = request.args.get('q')
         page, per_page, offset = get_page_args(
             page_parameter="page", per_page_parameter="per_page"
         )
+        params = None
         sql = "select * from artigo "
         sql_count = "select count(*) as total from artigo "
         where = ""
         if deletado:
-            where += " where deletado = 1"
+            where += "where deletado = 1 "
         else:
-            where += " where deletado = 0"
+            where += "where deletado = 0 "
+        if q:
+            search = True
+            where += "and (titulo like %s or corpo like %s) "
+            params = ("%" + q + "%", "%" + q + "%")
         sql += where
         sql_count += where
-        sql += " limit {}, {}".format(offset, per_page)
+        sql += " limit {}, {};".format(offset, per_page)
         conexao = factory_conexao()
         artigos = []
         try:
-            for registro in query(conexao, sql):
+            for registro in query(conexao, sql, params=params):
                 artigo = ArtigoData()
                 artigo.id_artigo = registro["id_artigo"]
                 artigo.titulo = markdown(registro["titulo"])
@@ -34,13 +41,14 @@ class ArtigoDominio:
                 artigo.tags = registro["tags"]
                 artigos.append(artigo)
             total = 0
-            for registro in query(conexao, sql_count):
+            for registro in query(conexao, sql_count, params=params):
                 total = registro['total']
         finally:
             conexao.close()
         pagination = Pagination(
             page=page,
             total=total,
+            search=search,
             per_page=per_page,
             record_name="artigos",
             show_single_page=True,

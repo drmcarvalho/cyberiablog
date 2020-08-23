@@ -10,6 +10,10 @@
   </head>
   <body>
     <h1>Posts</h1>
+    <form action="{{url_for('artigo.view_listar')}}" method="get">
+      Pesquisar: <input name="q" type="text" placeholder="digite aqui...">
+      <input type="submit" value="Pesquisar">
+    </form>
     <div class="container">
       <div class="table-responsive">
         <table class="table table-hover">
