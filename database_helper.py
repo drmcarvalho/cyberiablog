@@ -38,4 +38,3 @@ def factory_conexao():
         os.environ.get("PASS"),
         os.environ.get("HOST"),
     )
-
