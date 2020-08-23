@@ -7,13 +7,22 @@
     <!-- Bootstrap -->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+
+    <!-- Simple MD -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
 </head>
 <body>
     <h1>Novo post</h1>
-    <form action="{{url_for('admin_artigo.cadastrar')}}" method="post">
-        Titulo:<input type="text" name="titulo">
-        Conteudo:<input type="text" name="corpo">
+    <form action="{{url_for('admin_artigo.cadastrar')}}" method="post" name="artigoForm" id="artigoForm">
+        Titulo<input type="text" name="titulo">
+        <br>
+        Conteudo
+        <textarea id="mde" class="text" cols="30" rows="10" name="corpo" form="artigoForm" ></textarea>
         <input type="submit" value="postar">
     </form>
+    <script>
+        var simplemde = new SimpleMDE({element: document.getElementById("mde"), spellChecker: false});
+    </script>
 </body>
 </html>

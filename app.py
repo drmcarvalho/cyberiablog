@@ -12,7 +12,7 @@ app.register_blueprint(admin_artigo, url_prefix='/admin/artigo')
 app.register_blueprint(artigo, url_prefix='/artigo')
 app.register_blueprint(autenticacao, url_prefix='/autenticacao')
 
-md = Misaka()
+md = Misaka(fenced_code=True)
 md.init_app(app)
 
 if __name__ == '__main__':
