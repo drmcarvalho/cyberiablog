@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 from artigo_dominio import ArtigoDominio
-from flask_misaka import markdown
+
 
 artigo = Blueprint('artigo', __name__,
                    template_folder='templates',
