@@ -28,8 +28,3 @@ def view_listar():
         per_page=dictionary['per_page'],
         pagination=dictionary['pagination']
     )
-
-
-@artigo.route('/exemplo')
-def exemplo_post_markdown():
-    return markdown('#Exemplo\n*Test*')
